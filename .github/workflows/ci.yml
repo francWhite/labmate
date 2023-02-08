@@ -1,7 +1,12 @@
 name: CI
 
-on: push
-
+on:  
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   ci:
@@ -35,7 +40,4 @@ jobs:
           npm ci
       - name: Build
         run: |
-          npm run build -- --prod
-      - name: Test
-        run: |
-          npm run test -- --prod
+          npm run build

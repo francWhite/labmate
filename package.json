@@ -10,6 +10,7 @@
   "scripts": {
     "run:ui": "lerna run --scope=labmate start",
     "run:api": "lerna run --scope=labmate-api start",
-    "run:all": "lerna run --parallel start"
+    "run:all": "lerna run --parallel start",
+    "build": "lerna run --parallel build"
   }
 }
