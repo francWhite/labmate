@@ -9,25 +9,24 @@ on:
       - main
 
 jobs:
-  ci:
+  api:
      runs-on: ubuntu-latest
-     
      steps:
       - uses: actions/checkout@v3.3.0
-      
+
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3.6.0
         with:
           node-version: 18.x
+          cache: npm
           
       - name: Cache node modules
         id: cache-nodemodules
         uses: actions/cache@v3.2.4
         env:
-          cache-name: cache-node-modules
+          cache-name: cache-node-modules-api
         with:
-          # caching node_modules
-          path: node_modules
+          path: packages/server/node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
@@ -36,8 +35,52 @@ jobs:
             
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+        working-directory: ./packages/server
         run: |
           npm ci
       - name: Build
+        working-directory: ./packages/server
         run: |
           npm run build
+      - name: Lint
+        working-directory: ./packages/server
+        run: |
+          npm run lint
+
+  frontend:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v3.3.0
+
+         - name: Use Node.js 18.x
+           uses: actions/setup-node@v3.6.0
+           with:
+             node-version: 18.x
+             cache: npm
+
+         - name: Cache node modules
+           id: cache-nodemodules
+           uses: actions/cache@v3.2.4
+           env:
+             cache-name: cache-node-modules-frontend
+           with:
+             path: packages/client/node_modules
+             key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+             restore-keys: |
+               ${{ runner.os }}-build-${{ env.cache-name }}-
+               ${{ runner.os }}-build-
+               ${{ runner.os }}-
+
+         - name: Install Dependencies
+           if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+           working-directory: ./packages/client
+           run: |
+             npm ci
+         - name: Build
+           working-directory: ./packages/client
+           run: |
+             npm run build
+         - name: Lint
+           working-directory: ./packages/client
+           run: |
+             npm run lint
