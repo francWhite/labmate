@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-dummy-fetcher',
   templateUrl: './dummy-fetcher.component.html',
   styleUrls: ['./dummy-fetcher.component.scss']
 })
-export class DummyFetcherComponent {
+export class DummyFetcherComponent implements OnInit{
   testProp?: number;
 
 
@@ -16,6 +16,6 @@ export class DummyFetcherComponent {
   ngOnInit() {
     this.httpClient
       .get<number>('http://localhost:8000/api')
-      .subscribe(result => this.testProp = result)
+      .subscribe(result => this.testProp = result);
   }
 }
