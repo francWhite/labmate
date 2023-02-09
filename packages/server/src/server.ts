@@ -1,6 +1,12 @@
 import dotenv from 'dotenv';
 import cors from 'cors';
 import express from 'express';
+import process from 'process';
+
+process.on('SIGINT', () => {
+  console.info('cancel request, stopping server...');
+  process.exit(0);
+});
 
 dotenv.config();
 const PORT = process.env.PORT ?? 3000;
