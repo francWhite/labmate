@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ServiceInstance} from '../service-instance';
+import {ServiceInstance} from '../domain/service-instance';
 
 @Component({
   selector: 'app-service-tile',

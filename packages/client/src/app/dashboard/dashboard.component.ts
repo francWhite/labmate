@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ServiceInstance} from '../service-instance';
-import {ServiceInstanceService} from '../service-instance.service';
+import {ServiceInstance} from '../domain/service-instance';
+import {ServiceInstanceService} from '../domain/service-instance.service';
+
 
 @Component({
   selector: 'app-dashboard',
