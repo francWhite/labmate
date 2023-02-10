@@ -9,7 +9,7 @@ the [Getting started](#getting-started) chapter.
 
 
 ## Sidenotes
-labmate was developed during an assignment for the course "Web Programming Lab" at the Lucerne University of Applied
+LabMate was developed during an assignment for the course "Web Programming Lab" at the Lucerne University of Applied
 Sciences.
 
 # Getting started

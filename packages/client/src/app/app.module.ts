@@ -3,13 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {DummyFetcherComponent} from './dummy-fetcher/dummy-fetcher.component';
 import {HttpClientModule} from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ServiceTileComponent } from './service-tile/service-tile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DummyFetcherComponent
+    DashboardComponent,
+    ServiceTileComponent
   ],
   imports: [
     BrowserModule,
