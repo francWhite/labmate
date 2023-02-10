@@ -1,23 +1,20 @@
-import {Component, OnInit} from '@angular/core';
-import {ServiceInstance} from '../domain/service-instance';
-import {ServiceInstanceService} from '../domain/service-instance.service';
-
+import { Component, OnInit } from '@angular/core';
+import { ServiceInstance } from '../domain/service-instance';
+import { ServiceInstanceService } from '../domain/service-instance.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
   serviceInstances?: ServiceInstance[];
 
-
-  constructor(private serviceInstanceService: ServiceInstanceService) {
-  }
+  constructor(private serviceInstanceService: ServiceInstanceService) {}
 
   ngOnInit(): void {
     this.serviceInstanceService
       .getServiceInstances()
-      .subscribe(serviceInstances => this.serviceInstances = serviceInstances);
+      .subscribe(serviceInstances => (this.serviceInstances = serviceInstances));
   }
 }

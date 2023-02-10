@@ -1,4 +1,4 @@
 export interface ServiceInstance {
-  id: string,
-  name: string
+  id: string;
+  name: string;
 }

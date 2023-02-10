@@ -3,5 +3,5 @@
 export const environment = {
   production: false,
   api_hostname: window['env']['api_hostname'],
-  api_port: window['env']['api_port']
+  api_port: window['env']['api_port'],
 };
