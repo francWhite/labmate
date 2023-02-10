@@ -13,8 +13,6 @@ services:
       - "8585:8000"
     networks:
       - labmate-internal
-    depends_on:
-      - db
   app:
     build: packages/client
     environment:
