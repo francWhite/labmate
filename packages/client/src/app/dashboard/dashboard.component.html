@@ -1,5 +1,8 @@
 <p>dashboard works!</p>
 
-<app-service-tile
-  *ngFor="let serviceInstance of serviceInstances"
-  [serviceInstance]="serviceInstance"></app-service-tile>
+<div id="dashboard">
+  <app-service-tile
+    class="tile"
+    *ngFor="let serviceInstance of serviceInstances"
+    [serviceInstance]="serviceInstance"></app-service-tile>
+</div>

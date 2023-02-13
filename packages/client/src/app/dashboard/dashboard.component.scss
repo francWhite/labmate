@@ -1,0 +1,15 @@
+@import "node_modules/primeflex/primeflex.scss";
+
+#dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: space-around;
+  gap: 2rem 4rem;
+  padding: 2rem;
+}
+
+.tile {
+  display: flex;
+}

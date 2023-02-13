@@ -1,5 +1,9 @@
-<div *ngIf="serviceInstance">
-  <h1 class="p-m-">{{ serviceInstance.name }}</h1>
+<p-card *ngIf="serviceInstance" header="{{ serviceInstance.name }}" class="tile">
+  Body
+  <br />
+  Version: 1.1.2
 
-  <p-button label="Click"></p-button>
-</div>
+  <ng-template pTemplate="footer">
+    <p-button>Do something</p-button>
+  </ng-template>
+</p-card>

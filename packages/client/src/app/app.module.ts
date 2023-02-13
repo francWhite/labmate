@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ServiceTileComponent } from './service-tile/service-tile.component';
 import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ButtonModule } from 'primeng/button';
     AppRoutingModule,
     HttpClientModule,
     ButtonModule,
+    CardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

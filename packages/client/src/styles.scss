@@ -1,11 +1,12 @@
-html {
+@import "../node_modules/primeflex/primeflex.scss";
 
+html {
   height: 100%;
 }
 
 body {
   background-color: var(--surface-ground);
-  color: var(--text-color);
+  //color: var(--text-color);
   font-family: var(--font-family);
   font-weight: normal;
 }
