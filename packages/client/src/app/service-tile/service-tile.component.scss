@@ -1,17 +1,31 @@
-$cardBodyPadding: 5rem;
+:host ::ng-deep .p-card-content {
+  display: none;
+}
+
+:host ::ng-deep .p-button-label{
+  transition-duration: unset;
+}
+
+p-card{
+  cursor: pointer;
+}
 
 .card-header {
-  display: flex;
-  padding-top: 1rem;
-  justify-content: center;
+  padding: 1rem;
+
+  .badge-container{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .icon-container{
+    display: flex;
+    justify-content: center;
+  }
 
   .service-icon {
     width: 30%;
   }
-}
-
-.p-card-content{
-  display: none;
 }
 
 .footer{
@@ -25,3 +39,4 @@ $cardBodyPadding: 5rem;
 p-card:hover .footer{
   visibility: visible;
 }
+

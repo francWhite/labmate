@@ -1,14 +1,30 @@
-<p-card *ngIf="serviceInstance" header="{{ serviceInstance.name }}" subheader="{{ serviceInstance.version }}">
+<p-card
+  *ngIf="serviceInstance"
+  header="{{ serviceInstance.name }}"
+  subheader="{{ serviceInstance.version }}"
+  (click)="cardOnClick()">
   <ng-template pTemplate="header">
     <div class="card-header">
-      <img class="service-icon" alt="icon" src="{{ serviceInstance.icon }}" />
+      <div class="badge-container">
+        <p-badge severity="{{ serviceInstance.status | status }}"></p-badge>
+      </div>
+      <div class="icon-container">
+        <img class="service-icon" alt="icon" src="{{ serviceInstance.icon }}" />
+      </div>
     </div>
   </ng-template>
-  Body
   <ng-template pTemplate="footer">
     <div class="footer">
-      <p-button label="Edit" icon="pi pi-pencil" styleClass="p-button-sm"></p-button>
-      <p-button label="Delete" icon="pi pi-trash" styleClass="p-button-sm p-button-danger"></p-button>
+      <p-button
+        label="Edit"
+        icon="pi pi-pencil"
+        styleClass="p-button-sm p-button-outlined"
+        (click)="editOnClick($event)"></p-button>
+      <p-button
+        label="Delete"
+        icon="pi pi-trash"
+        styleClass="p-button-sm p-button-danger p-button-outlined"
+        (click)="deleteOnClick($event)"></p-button>
     </div>
   </ng-template>
 </p-card>

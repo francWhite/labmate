@@ -10,12 +10,15 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { StyleClassModule } from 'primeng/styleclass';
 import { RippleModule } from 'primeng/ripple';
+import { BadgeModule } from 'primeng/badge';
+import { StatusPipe } from './status.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     ServiceTileComponent,
+    StatusPipe,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,7 @@ import { RippleModule } from 'primeng/ripple';
     CardModule,
     StyleClassModule,
     RippleModule,
+    BadgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -16,7 +16,7 @@ export class ServiceInstanceService {
       name: 'Plex',
       icon: this.dummyImage,
       version: '1.23.4',
-      status: Status.Alive,
+      status: Status.Inactive,
     },
     {
       id: '4908bb41-116a-491c-a687-f1231bea769a',

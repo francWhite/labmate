@@ -8,4 +8,18 @@ import { ServiceInstance } from '../domain/service-instance';
 })
 export class ServiceTileComponent {
   @Input() serviceInstance?: ServiceInstance;
+
+  cardOnClick(): void {
+    console.log('card click');
+  }
+
+  editOnClick(event: Event) {
+    event.stopPropagation();
+    console.log('edit click');
+  }
+
+  deleteOnClick(event: Event) {
+    event.stopPropagation();
+    console.log('delete click');
+  }
 }
