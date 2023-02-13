@@ -2,33 +2,35 @@
   display: none;
 }
 
-:host ::ng-deep .p-button-label{
+:host ::ng-deep .p-button-label {
   transition-duration: unset;
 }
 
-p-card{
+p-card {
   cursor: pointer;
+  user-select: none;
 }
 
 .card-header {
-  padding: 1rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
-  .badge-container{
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p-badge{
+    align-self: flex-end;
   }
 
-  .icon-container{
-    display: flex;
-    justify-content: center;
-  }
-
-  .service-icon {
+  img {
     width: 30%;
   }
 }
 
-.footer{
+.footer {
   display: flex;
   visibility: hidden;
   justify-content: space-evenly;
@@ -36,7 +38,7 @@ p-card{
   width: 100%;
 }
 
-p-card:hover .footer{
+p-card:hover .footer {
   visibility: visible;
 }
 
