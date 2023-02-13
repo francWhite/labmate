@@ -11,6 +11,13 @@ p-card {
   user-select: none;
 }
 
+:host ::ng-deep .p-card:hover {
+  box-shadow:
+          0 1px 7px rgba(0, 0, 0, 0.1),
+          0 4px 5px -2px rgba(0, 0, 0, 0.12),
+          0 10px 15px -5px rgba(0, 0, 0, 0.2);
+}
+
 .card-header {
   padding-top: 1rem;
   padding-left: 1rem;
@@ -21,7 +28,7 @@ p-card {
   justify-content: center;
   align-items: center;
 
-  p-badge{
+  p-badge {
     align-self: flex-end;
   }
 
