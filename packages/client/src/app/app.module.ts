@@ -8,6 +8,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ServiceTileComponent } from './service-tile/service-tile.component';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { StyleClassModule } from 'primeng/styleclass';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { CardModule } from 'primeng/card';
     HttpClientModule,
     ButtonModule,
     CardModule,
+    StyleClassModule,
+    RippleModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
