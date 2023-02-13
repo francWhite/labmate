@@ -1,0 +1,27 @@
+$cardBodyPadding: 5rem;
+
+.card-header {
+  display: flex;
+  padding-top: 1rem;
+  justify-content: center;
+
+  .service-icon {
+    width: 30%;
+  }
+}
+
+.p-card-content{
+  display: none;
+}
+
+.footer{
+  display: flex;
+  visibility: hidden;
+  justify-content: space-evenly;
+  column-gap: 1rem;
+  width: 100%;
+}
+
+p-card:hover .footer{
+  visibility: visible;
+}

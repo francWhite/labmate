@@ -1,9 +1,14 @@
-<p-card *ngIf="serviceInstance" header="{{ serviceInstance.name }}" class="tile">
+<p-card *ngIf="serviceInstance" header="{{ serviceInstance.name }}" subheader="{{ serviceInstance.version }}">
+  <ng-template pTemplate="header">
+    <div class="card-header">
+      <img class="service-icon" alt="icon" src="{{ serviceInstance.icon }}" />
+    </div>
+  </ng-template>
   Body
-  <br />
-  Version: 1.1.2
-
   <ng-template pTemplate="footer">
-    <p-button>Do something</p-button>
+    <div class="footer">
+      <p-button label="Edit" icon="pi pi-pencil" styleClass="p-button-sm"></p-button>
+      <p-button label="Delete" icon="pi pi-trash" styleClass="p-button-sm p-button-danger"></p-button>
+    </div>
   </ng-template>
 </p-card>
