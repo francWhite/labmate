@@ -5,14 +5,13 @@
   (click)="cardOnClick()">
   <ng-template pTemplate="header">
     <div class="card-header">
-      <p-badge severity="{{ serviceInstance.status | status }}"></p-badge>
       <div class="icon-container">
         <img *ngIf="serviceInstance.icon" alt="service-icon" src="{{ serviceInstance.icon }}" />
         <i *ngIf="!serviceInstance.icon" class="pi pi-box"></i>
       </div>
+      <p-badge severity="{{ serviceInstance.status | status }}"></p-badge>
     </div>
   </ng-template>
-
   <ng-template pTemplate="footer">
     <div class="footer">
       <p-button
