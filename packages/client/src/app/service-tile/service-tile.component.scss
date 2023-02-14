@@ -2,20 +2,25 @@
   display: none;
 }
 
+:host ::ng-deep .p-card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 :host ::ng-deep .p-button-label {
   transition-duration: unset;
+}
+
+:host ::ng-deep .p-card:hover {
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.1),
+  0 4px 5px -2px rgba(0, 0, 0, 0.12),
+  0 10px 15px -5px rgba(0, 0, 0, 0.2);
 }
 
 p-card {
   cursor: pointer;
   user-select: none;
-}
-
-:host ::ng-deep .p-card:hover {
-  box-shadow:
-          0 1px 7px rgba(0, 0, 0, 0.1),
-          0 4px 5px -2px rgba(0, 0, 0, 0.12),
-          0 10px 15px -5px rgba(0, 0, 0, 0.2);
 }
 
 .card-header {
@@ -32,8 +37,26 @@ p-card {
     align-self: flex-end;
   }
 
-  img {
-    width: 30%;
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 20%;
+    height: 4rem;
+    width: 4rem;
+    padding: 0.1rem;
+
+    img {
+      object-fit: cover;
+      border-radius: 20%;
+      width: 100%;
+      height: 100%;
+    }
+
+    i {
+      font-size: 3.5rem;
+    }
   }
 }
 
@@ -48,4 +71,3 @@ p-card {
 p-card:hover .footer {
   visibility: visible;
 }
-

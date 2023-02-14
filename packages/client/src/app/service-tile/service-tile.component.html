@@ -6,9 +6,13 @@
   <ng-template pTemplate="header">
     <div class="card-header">
       <p-badge severity="{{ serviceInstance.status | status }}"></p-badge>
-      <img alt="service-icon" src="{{ serviceInstance.icon }}" />
+      <div class="icon-container">
+        <img *ngIf="serviceInstance.icon" alt="service-icon" src="{{ serviceInstance.icon }}" />
+        <i *ngIf="!serviceInstance.icon" class="pi pi-box"></i>
+      </div>
     </div>
   </ng-template>
+
   <ng-template pTemplate="footer">
     <div class="footer">
       <p-button
@@ -16,6 +20,7 @@
         icon="pi pi-pencil"
         styleClass="p-button-sm p-button-outlined"
         (click)="editOnClick($event)"></p-button>
+
       <p-button
         label="Delete"
         icon="pi pi-trash"
