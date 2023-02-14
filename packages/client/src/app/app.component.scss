@@ -6,13 +6,8 @@
   height: 3rem
 }
 
-.sidebar {
-  position: fixed;
-  left: 0;
-  height: 100vh;
-}
-
 .content {
   padding-top: 3rem;
-  padding-left: 3rem;
+  display: flex;
+  height: 100vh;
 }

@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
+  isVisible = false;
   toggleMenu() {
-    console.log('toggle menu');
+    this.isVisible = !this.isVisible;
   }
 }
