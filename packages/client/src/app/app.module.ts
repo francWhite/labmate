@@ -13,6 +13,7 @@ import { RippleModule } from 'primeng/ripple';
 import { BadgeModule } from 'primeng/badge';
 import { StatusPipe } from './status.pipe';
 import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HeaderComponent } from './header/header.component';
     ServiceTileComponent,
     StatusPipe,
     HeaderComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

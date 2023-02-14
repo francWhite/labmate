@@ -1,0 +1,15 @@
+.sidebar {
+  height: 100%;
+  background-color: var(--surface-200);
+  border-right: 2px solid var(--surface-300);
+  padding: 0.5rem;
+
+  button {
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+  }
+}
+:host ::ng-deep .p-button-icon{
+  font-size: 1.2rem;
+}
