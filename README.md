@@ -1,6 +1,7 @@
 ![logo](doc/img/logo-banner.png)
 
 [![CI](https://github.com/francWhite/labmate/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/francWhite/labmate/actions/workflows/ci.yml)
+![licence](https://img.shields.io/github/license/francWhite/labmate)
 
 # LabMate - a simple dashboard for your homelab
 
