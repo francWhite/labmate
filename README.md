@@ -1,7 +1,6 @@
 ![logo](doc/img/logo-banner.png)
 
 [![CI](https://github.com/francWhite/labmate/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/francWhite/labmate/actions/workflows/ci.yml)
-[![Docker CI](https://github.com/francWhite/labmate/actions/workflows/docker.yml/badge.svg)](https://github.com/francWhite/labmate/actions/workflows/docker.yml)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/francWhite/labmate?include_prereleases)
 ![Docker Pulls](https://img.shields.io/docker/pulls/frankwhite/labmate)
 ![licence](https://img.shields.io/github/license/francWhite/labmate)
