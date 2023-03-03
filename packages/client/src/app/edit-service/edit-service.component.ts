@@ -13,6 +13,7 @@ import { MessageService } from 'primeng/api';
 export class EditServiceComponent implements OnInit {
   @Input() serviceInstance?: ServiceInstance;
   form!: FormGroup;
+  isSaving = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -63,17 +64,21 @@ export class EditServiceComponent implements OnInit {
       ...this.form.value,
     };
 
-    if (this.serviceInstance) {
-      this.serviceInstanceService.saveServiceInstance(this.serviceInstance);
+    if (!this.serviceInstance) {
+      return;
     }
 
-    this.messageService.add({
-      severity: 'success',
-      summary: 'Saved',
-      detail: 'Service successfully saved',
-      life: 2000,
-    });
+    this.isSaving = true;
+    this.serviceInstanceService.saveServiceInstance(this.serviceInstance).subscribe(() => {
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Saved',
+        detail: 'Service successfully saved',
+        life: 2000,
+      });
 
-    void this.router.navigate(['/']);
+      this.isSaving = false;
+      void this.router.navigate(['/']);
+    });
   }
 }

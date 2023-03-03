@@ -44,7 +44,8 @@
         label="Save"
         icon="pi pi-save"
         class="p-button-outlined"
-        [disabled]="!form.valid"></button>
+        [disabled]="!form.valid"
+        [loading]="isSaving"></button>
       <button
         pButton
         type="button"
