@@ -3,8 +3,30 @@
     pButton
     type="button"
     icon="pi pi-bars"
-    class="p-button-secondary p-button-text"
+    class="p-button-secondary p-button-text icon-button"
     (click)="toggleMenu()"></button>
 
-  <p *ngIf="isVisible">Menu-Item</p>
+  <div *ngIf="isVisible" class="button-container">
+    <button
+      pButton
+      type="button"
+      icon="pi pi-home"
+      iconPos="left"
+      label="Dashboard"
+      class="p-button-secondary p-button-text"></button>
+    <button
+      pButton
+      type="button"
+      icon="pi pi-cog"
+      iconPos="left"
+      label="Settings"
+      class="p-button-secondary p-button-text"></button>
+    <button
+      pButton
+      type="button"
+      icon="pi pi-info-circle"
+      iconPos="left"
+      label="About"
+      class="p-button-secondary p-button-text"></button>
+  </div>
 </div>
