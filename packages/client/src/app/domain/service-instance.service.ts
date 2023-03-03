@@ -56,4 +56,14 @@ export class ServiceInstanceService {
   getServiceInstance(id: string): Observable<ServiceInstance> {
     return of(this.SERVICES.find(service => service.id === id) ?? ({} as ServiceInstance));
   }
+
+  saveServiceInstance(serviceInstance: ServiceInstance): Observable<ServiceInstance> {
+    const index = this.SERVICES.findIndex(service => service.id === serviceInstance.id);
+    if (index === -1) {
+      this.SERVICES.push(serviceInstance);
+    } else {
+      this.SERVICES[index] = serviceInstance;
+    }
+    return of(serviceInstance);
+  }
 }

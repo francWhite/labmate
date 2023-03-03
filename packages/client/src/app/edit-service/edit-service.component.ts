@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceInstance } from '../domain/service-instance';
 import { ServiceInstanceService } from '../domain/service-instance.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -15,6 +15,7 @@ export class EditServiceComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private serviceInstanceService: ServiceInstanceService,
     private formBuilder: FormBuilder
   ) {}
@@ -40,14 +41,30 @@ export class EditServiceComponent implements OnInit {
         this.serviceInstance?.version,
         Validators.required,
       ],
-      imageUrl: [
+      icon: [
         this.serviceInstance?.icon,
         Validators.required,
+      ],
+      statusCheckEnabled: [
+        false,
       ],
     });
   }
 
   onSubmit() {
-    console.log(this.form.value);
+    if (this.form.invalid) {
+      return;
+    }
+
+    this.serviceInstance = {
+      ...this.serviceInstance,
+      ...this.form.value,
+    };
+
+    if (this.serviceInstance) {
+      this.serviceInstanceService.saveServiceInstance(this.serviceInstance);
+    }
+
+    void this.router.navigate(['/']);
   }
 }
