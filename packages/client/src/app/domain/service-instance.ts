@@ -1,4 +1,5 @@
 import { Status } from './status';
+import { StatusCheckConfiguration } from './status-check-configuration';
 
 export interface ServiceInstance {
   //TODO: use uuid
@@ -8,4 +9,5 @@ export interface ServiceInstance {
   icon?: string;
   version?: string;
   status: Status;
+  statusCheckConfiguration?: StatusCheckConfiguration;
 }

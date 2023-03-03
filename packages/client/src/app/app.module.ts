@@ -19,10 +19,10 @@ import { AboutComponent } from './about/about.component';
 import { EditServiceComponent } from './edit-service/edit-service.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
-import { DividerModule } from 'primeng/divider';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
@@ -47,10 +47,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BadgeModule,
     ReactiveFormsModule,
     InputTextModule,
-    DividerModule,
     InputSwitchModule,
     ToastModule,
     BrowserAnimationsModule,
+    InputNumberModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

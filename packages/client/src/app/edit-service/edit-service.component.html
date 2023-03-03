@@ -29,10 +29,31 @@
     </div>
   </div>
 
-  <div class="field grid input-group">
+  <div class="field grid input-group" formGroupName="statusCheckConfiguration">
     <label for="statusCheckEnabled" class="col-2 mb-0">Status check</label>
     <div class="col-10">
-      <p-inputSwitch formControlName="statusCheckEnabled" id="statusCheckEnabled"></p-inputSwitch>
+      <p-inputSwitch formControlName="enabled" id="statusCheckEnabled"></p-inputSwitch>
+    </div>
+  </div>
+
+  <div class="field grid input-group" formGroupName="statusCheckConfiguration" *ngIf="statusCheckEnabled()">
+    <label for="statusCheckInterval" class="col-2 mb-0">Interval</label>
+    <div class="col-10">
+      <p-inputNumber
+        formControlName="interval"
+        id="statusCheckInterval"
+        suffix=" s"
+        [max]="86400"
+        [min]="1"
+        class="w-full"
+        styleClass="w-full"></p-inputNumber>
+    </div>
+  </div>
+
+  <div class="field grid input-group" formGroupName="statusCheckConfiguration" *ngIf="statusCheckEnabled()">
+    <label for="checkUrl" class="col-2 mb-0">Check url</label>
+    <div class="col-10">
+      <input pInputText type="text" formControlName="checkUrl" id="checkUrl" />
     </div>
   </div>
 
