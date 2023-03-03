@@ -5,12 +5,24 @@
   padding: 0.5rem;
   width: max-content;
 
-  button {
+  .icon-button {
     width: 2rem;
     height: 2rem;
     padding: 0.5rem;
   }
 }
-:host ::ng-deep .p-button-icon{
+
+:host ::ng-deep .p-button-icon {
   font-size: 1.2rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+
+  button {
+    text-align: start;
+    padding-left: 0.5rem;
+  }
 }
