@@ -23,6 +23,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
     ToastModule,
     BrowserAnimationsModule,
     InputNumberModule,
+    ConfirmDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
