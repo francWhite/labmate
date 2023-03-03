@@ -24,12 +24,18 @@ export class EditServiceComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadServiceInstance();
+    this.buildForm();
+  }
+
+  loadServiceInstance() {
     const id = this.route.snapshot.paramMap.get('id') ?? '';
     this.serviceInstanceService
       .getServiceInstance(id)
       .subscribe(serviceInstance => (this.serviceInstance = serviceInstance));
+  }
 
-    //TODO: add status settings
+  buildForm() {
     //TODO: add image upload
     this.form = this.formBuilder.group({
       name: [
@@ -44,14 +50,34 @@ export class EditServiceComponent implements OnInit {
         this.serviceInstance?.version,
         Validators.required,
       ],
-      icon: [
-        this.serviceInstance?.icon,
-        Validators.required,
-      ],
-      statusCheckEnabled: [
-        false,
-      ],
+      icon: [this.serviceInstance?.icon],
+      statusCheckConfiguration: this.formBuilder.group({
+        enabled: [this.serviceInstance?.statusCheckConfiguration?.enabled],
+        interval: [this.serviceInstance?.statusCheckConfiguration?.interval],
+        checkUrl: [this.serviceInstance?.statusCheckConfiguration?.checkUrl],
+      }),
     });
+
+    this.form.get('statusCheckConfiguration.enabled')?.valueChanges.subscribe(enabled => {
+      const intervalControl = this.form.get('statusCheckConfiguration.interval');
+      const checkUrlControl = this.form.get('statusCheckConfiguration.checkUrl');
+
+      if (enabled) {
+        intervalControl?.clearValidators();
+        intervalControl?.setValidators(Validators.required);
+      } else {
+        intervalControl?.clearValidators();
+        intervalControl?.setValue(null);
+        checkUrlControl?.setValue(null);
+      }
+
+      intervalControl?.markAsDirty();
+      intervalControl?.updateValueAndValidity();
+    });
+  }
+
+  statusCheckEnabled(): boolean {
+    return this.form.get('statusCheckConfiguration.enabled')?.value ?? false;
   }
 
   onSubmit() {
