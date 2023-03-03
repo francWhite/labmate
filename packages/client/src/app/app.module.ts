@@ -14,6 +14,8 @@ import { BadgeModule } from 'primeng/badge';
 import { StatusPipe } from './status.pipe';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SettingsComponent } from './settings/settings.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     StatusPipe,
     HeaderComponent,
     SidebarComponent,
+    SettingsComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
