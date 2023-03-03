@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceInstance } from '../domain/service-instance';
 import { ServiceInstanceService } from '../domain/service-instance.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-edit-service',
@@ -17,7 +18,8 @@ export class EditServiceComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private serviceInstanceService: ServiceInstanceService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -64,6 +66,13 @@ export class EditServiceComponent implements OnInit {
     if (this.serviceInstance) {
       this.serviceInstanceService.saveServiceInstance(this.serviceInstance);
     }
+
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Saved',
+      detail: 'Service successfully saved',
+      life: 2000,
+    });
 
     void this.router.navigate(['/']);
   }
