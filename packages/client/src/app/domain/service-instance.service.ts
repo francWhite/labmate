@@ -66,4 +66,13 @@ export class ServiceInstanceService {
     }
     return of(serviceInstance);
   }
+
+  deleteServiceInstance(id: string): Observable<boolean> {
+    const index = this.SERVICES.findIndex(service => service.id === id);
+    if (index === -1) {
+      return of(false);
+    }
+    this.SERVICES.splice(index, 1);
+    return of(true);
+  }
 }
