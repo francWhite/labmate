@@ -6,8 +6,13 @@
   height: 3rem
 }
 
-.content {
+.main {
   padding-top: 3rem;
   display: flex;
   height: 100vh;
+}
+
+.content{
+  padding: 2rem;
+  width: 100%;
 }

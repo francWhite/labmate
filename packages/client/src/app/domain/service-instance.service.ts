@@ -14,6 +14,7 @@ export class ServiceInstanceService {
       icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnf02hHy_OH3A-yFuRGkAVm6vtaiDzax1Ntw&usqp=CAU',
       version: '1.23.4',
       status: Status.Inactive,
+      url: 'https://google.com?search?q=plex',
     },
     {
       id: '4908bb41-116a-491c-a687-f1231bea769a',
@@ -21,6 +22,7 @@ export class ServiceInstanceService {
       icon: 'https://forums-sonarr-tv.s3.dualstack.us-east-1.amazonaws.com/original/2X/e/ef4553fe96f04a298ec502279731579698e96a9b.png',
       version: '1.55',
       status: Status.Alive,
+      url: 'https://google.com?search?q=sonarr',
     },
     {
       id: '6823fecc-a5bf-43fc-b885-297bf5dcfa11',
@@ -28,6 +30,7 @@ export class ServiceInstanceService {
       icon: 'https://styles.redditmedia.com/t5_3icg7/styles/communityIcon_d0kaqkdtx9261.png',
       version: '7.2.15',
       status: Status.Dead,
+      url: 'https://google.com?search?q=radarr',
     },
     {
       id: '244e794e-7713-49ab-b644-6b261fcffee1',
@@ -35,16 +38,22 @@ export class ServiceInstanceService {
       icon: 'https://wp-cdn.pi-hole.net/wp-content/uploads/2016/12/Vortex-R.png',
       version: '1.1.20',
       status: Status.Alive,
+      url: 'https://google.com?search?q=pihole',
     },
     {
       id: 'f702100a-43c0-4f26-a86d-c28653b203ff',
       name: 'JDownloader very very very very long text',
       version: '2',
       status: Status.Alive,
+      url: 'https://google.com?search?q=jdownloader',
     },
   ];
 
   getServiceInstances(): Observable<ServiceInstance[]> {
     return of(this.SERVICES);
+  }
+
+  getServiceInstance(id: string): Observable<ServiceInstance> {
+    return of(this.SERVICES.find(service => service.id === id) ?? ({} as ServiceInstance));
   }
 }

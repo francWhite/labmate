@@ -1,0 +1,32 @@
+@import './node_modules/primeflex/src/_variables.scss';
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 60rem;
+  background: var(--surface-card);
+}
+
+h1{
+  margin-top: 0;
+}
+
+.input-group {
+  width: 100%;
+  input{
+    width: 100%;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  button{
+    width: 48%;
+  }
+}

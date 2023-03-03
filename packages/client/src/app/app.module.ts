@@ -16,6 +16,11 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AboutComponent } from './about/about.component';
+import { EditServiceComponent } from './edit-service/edit-service.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { DividerModule } from 'primeng/divider';
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,7 @@ import { AboutComponent } from './about/about.component';
     SidebarComponent,
     SettingsComponent,
     AboutComponent,
+    EditServiceComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +43,10 @@ import { AboutComponent } from './about/about.component';
     StyleClassModule,
     RippleModule,
     BadgeModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    DividerModule,
+    InputSwitchModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
