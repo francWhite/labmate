@@ -3,7 +3,12 @@
   justify-content: center;
   height: 100%;
   padding: 0.3rem;
+  user-select: none;
 
   background-color: #1F2D5A;
   border-bottom: 3px solid var(--primary-color);
+
+  img{
+    cursor: pointer;
+  }
 }
