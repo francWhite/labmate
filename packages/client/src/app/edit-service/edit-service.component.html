@@ -1,0 +1,45 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="shadow-1 border-round">
+  <h1>Edit</h1>
+
+  <div class="field grid input-group">
+    <label for="name" class="col-2 mb-0">Name</label>
+    <div class="col-10">
+      <input pInputText type="text" formControlName="name" id="name" />
+    </div>
+  </div>
+
+  <div class="field grid input-group">
+    <label for="version" class="col-2 mb-0">Version</label>
+    <div class="col-10">
+      <input pInputText type="text" formControlName="version" id="version" />
+    </div>
+  </div>
+
+  <div class="field grid input-group">
+    <label for="url" class="col-2 mb-0">Url</label>
+    <div class="col-10">
+      <input pInputText type="text" formControlName="url" id="url" />
+    </div>
+  </div>
+
+  <div class="field grid input-group">
+    <label for="imageUrl" class="col-2 mb-0">Image url</label>
+    <div class="col-10">
+      <input pInputText type="text" formControlName="imageUrl" id="imageUrl" />
+    </div>
+  </div>
+
+  <div class="field grid input-group">
+    <label for="statusCheck" class="col-2 mb-0">Status check</label>
+    <div class="col-10">
+      <p-inputSwitch formControlName="enabled" id="statusCheck"></p-inputSwitch>
+    </div>
+  </div>
+
+  <div class="grid w-full">
+    <div class="button-container col-10 col-offset-2">
+      <button pButton type="submit" label="Save" icon="pi pi-save" class="p-button-outlined"></button>
+      <button pButton type="button" label="Cancel" icon="pi pi-save" class="p-button-outlined p-button-danger"></button>
+    </div>
+  </div>
+</form>

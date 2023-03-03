@@ -13,11 +13,6 @@ export class ServiceTileComponent {
     console.log('card click');
   }
 
-  editOnClick(event: Event) {
-    event.stopPropagation();
-    console.log('edit click');
-  }
-
   deleteOnClick(event: Event) {
     event.stopPropagation();
     console.log('delete click');
