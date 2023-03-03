@@ -25,21 +25,33 @@
   <div class="field grid input-group">
     <label for="imageUrl" class="col-2 mb-0">Image url</label>
     <div class="col-10">
-      <input pInputText type="text" formControlName="imageUrl" id="imageUrl" />
+      <input pInputText type="text" formControlName="icon" id="imageUrl" />
     </div>
   </div>
 
   <div class="field grid input-group">
-    <label for="statusCheck" class="col-2 mb-0">Status check</label>
+    <label for="statusCheckEnabled" class="col-2 mb-0">Status check</label>
     <div class="col-10">
-      <p-inputSwitch formControlName="enabled" id="statusCheck"></p-inputSwitch>
+      <p-inputSwitch formControlName="statusCheckEnabled" id="statusCheckEnabled"></p-inputSwitch>
     </div>
   </div>
 
   <div class="grid w-full">
     <div class="button-container col-10 col-offset-2">
-      <button pButton type="submit" label="Save" icon="pi pi-save" class="p-button-outlined"></button>
-      <button pButton type="button" label="Cancel" icon="pi pi-save" class="p-button-outlined p-button-danger"></button>
+      <button
+        pButton
+        type="submit"
+        label="Save"
+        icon="pi pi-save"
+        class="p-button-outlined"
+        [disabled]="!form.valid"></button>
+      <button
+        pButton
+        type="button"
+        label="Cancel"
+        icon="pi pi-save"
+        class="p-button-outlined p-button-danger"
+        routerLink="/"></button>
     </div>
   </div>
 </form>
