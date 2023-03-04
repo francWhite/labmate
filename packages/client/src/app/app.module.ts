@@ -24,6 +24,7 @@ import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ServiceTileAddComponent } from './service-tile-add/service-tile-add.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     SettingsComponent,
     AboutComponent,
     EditServiceComponent,
+    ServiceTileAddComponent,
   ],
   imports: [
     BrowserModule,

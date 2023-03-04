@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ServiceInstance } from './service-instance';
 import { Observable, of } from 'rxjs';
 import { Status } from './status';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root',
@@ -53,13 +54,14 @@ export class ServiceInstanceService {
     return of(this.SERVICES);
   }
 
-  getServiceInstance(id: string): Observable<ServiceInstance> {
-    return of(this.SERVICES.find(service => service.id === id) ?? ({} as ServiceInstance));
+  getServiceInstance(id: string): Observable<ServiceInstance | undefined> {
+    return of(this.SERVICES.find(service => service.id === id));
   }
 
   saveServiceInstance(serviceInstance: ServiceInstance): Observable<ServiceInstance> {
     const index = this.SERVICES.findIndex(service => service.id === serviceInstance.id);
     if (index === -1) {
+      serviceInstance.id = uuidv4().toString();
       this.SERVICES.push(serviceInstance);
     } else {
       this.SERVICES[index] = serviceInstance;

@@ -14,6 +14,7 @@ export class EditServiceComponent implements OnInit {
   @Input() serviceInstance?: ServiceInstance;
   form!: FormGroup;
   isSaving = false;
+  title?: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,9 +31,11 @@ export class EditServiceComponent implements OnInit {
 
   loadServiceInstance() {
     const id = this.route.snapshot.paramMap.get('id') ?? '';
-    this.serviceInstanceService
-      .getServiceInstance(id)
-      .subscribe(serviceInstance => (this.serviceInstance = serviceInstance));
+
+    this.serviceInstanceService.getServiceInstance(id).subscribe(serviceInstance => {
+      this.serviceInstance = serviceInstance;
+      this.title = this.serviceInstance ? 'Edit Service' : 'Add Service';
+    });
   }
 
   buildForm() {
