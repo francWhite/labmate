@@ -8,13 +8,15 @@ services:
     networks:
       - labmate-internal
   api:
-    build: packages/server
+    image: frankwhite/labmate-api:latest
     ports:
       - "8585:8000"
     networks:
       - labmate-internal
+    depends_on:
+      - db
   app:
-    build: packages/client
+    image: frankwhite/labmate:latest
     environment:
       - API_HOSTNAME=localhost
       - API_PORT=8585

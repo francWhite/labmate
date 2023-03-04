@@ -9,7 +9,7 @@
 
 
 Monitor your homelab with ease! There is no need for complex configuration, just use the `docker-compose.yml` from
-the [Getting started](#getting-started) chapter.
+the [Getting started](#getting-started) chapter and get going.
 
 
 ## Sidenotes
@@ -18,10 +18,41 @@ Sciences.
 
 # Getting started
 
-Just want to try out **labmate** or install it in your homelab? Use de following docker-compose template:
+Just want to try out **labmate**? Use de following docker-compose template:
 
 ```yaml
-TBD
+version: "3.9"
+
+services:
+  db:
+    image: mongo:latest
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - labmate-internal
+  api:
+    image: frankwhite/labmate-api:latest
+    ports:
+      - "8585:8000"
+    networks:
+      - labmate-internal
+    depends_on:
+      - db
+  app:
+    image: frankwhite/labmate:latest
+    environment:
+      - API_HOSTNAME=localhost
+      - API_PORT=8585
+    ports:
+      - "8080:8080"
+    depends_on:
+      - api
+
+volumes:
+  mongodb_data:
+
+networks:
+  labmate-internal:
 ```
 
 # Build from source
