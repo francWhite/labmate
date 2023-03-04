@@ -1,0 +1,27 @@
+.card {
+  cursor: pointer;
+  user-select: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 15rem;
+  height: 14rem;
+  background: var(--surface-card);
+
+  opacity: 20%;
+
+  i {
+    font-size: 3rem;
+    opacity: 50%;
+  }
+}
+
+.card:hover{
+  opacity: 80%;
+  i {
+    opacity: 80%;
+  }
+}
