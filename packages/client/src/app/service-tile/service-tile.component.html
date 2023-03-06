@@ -11,7 +11,7 @@
         <img *ngIf="serviceInstance.icon" alt="service-icon" src="{{ serviceInstance.icon }}" />
         <i *ngIf="!serviceInstance.icon" class="pi pi-box"></i>
       </div>
-      <p-badge severity="{{ serviceInstance.status | status }}"></p-badge>
+      <p-badge *ngIf="serviceInstance.status !== 'inactive'" severity="{{ serviceInstance.status | status }}"></p-badge>
     </div>
   </ng-template>
   <ng-template pTemplate="footer">

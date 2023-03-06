@@ -8,10 +8,6 @@ export class StatusPipe implements PipeTransform {
       return 'success';
     }
 
-    if (value === Status.Inactive) {
-      return 'warning';
-    }
-
     return 'danger';
   }
 }
