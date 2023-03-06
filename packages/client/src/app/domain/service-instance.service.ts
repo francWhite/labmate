@@ -20,12 +20,12 @@ export class ServiceInstanceService {
     return this.httpClient.get<ServiceInstance>(`${this.api_url}/${id}`);
   }
 
-  createServiceInstance(serviceInstance: ServiceInstance): Observable<ServiceInstance> {
-    return this.httpClient.post<ServiceInstance>(this.api_url, serviceInstance);
+  createServiceInstance(serviceInstance: ServiceInstance): Observable<string> {
+    return this.httpClient.post(this.api_url, serviceInstance, { responseType: 'text' });
   }
 
-  updateServiceInstance(serviceInstance: ServiceInstance): Observable<ServiceInstance> {
-    return this.httpClient.put<ServiceInstance>(`${this.api_url}/${serviceInstance._id}`, serviceInstance);
+  updateServiceInstance(serviceInstance: ServiceInstance): Observable<string> {
+    return this.httpClient.put(`${this.api_url}/${serviceInstance._id}`, serviceInstance, { responseType: 'text' });
   }
 
   deleteServiceInstance(id: string): Observable<boolean> {

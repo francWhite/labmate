@@ -9,6 +9,8 @@ services:
       - labmate-internal
   api:
     image: frankwhite/labmate-api:latest
+    environment:
+        - MONGO_URL=mongodb://db:27017/labmate
     ports:
       - "8585:8000"
     networks:
