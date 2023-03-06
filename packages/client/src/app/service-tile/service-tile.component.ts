@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ServiceInstance } from '../domain/service-instance';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ServiceInstanceService } from '../domain/service-instance.service';
@@ -11,6 +11,7 @@ import { ServiceInstanceService } from '../domain/service-instance.service';
 })
 export class ServiceTileComponent {
   @Input() serviceInstance?: ServiceInstance;
+  @Output() serviceInstanceDeleted = new EventEmitter();
 
   constructor(
     private confirmationService: ConfirmationService,
@@ -36,11 +37,10 @@ export class ServiceTileComponent {
       defaultFocus: 'reject',
       dismissableMask: true,
       accept: () => {
-        this.serviceInstanceService
-          .deleteServiceInstance(this.serviceInstance?.id ?? '')
-          .subscribe(() =>
-            this.messageService.add({ severity: 'success', summary: 'Deleted', detail: 'Service deleted' })
-          );
+        this.serviceInstanceService.deleteServiceInstance(this.serviceInstance?._id ?? '').subscribe(() => {
+          this.messageService.add({ severity: 'success', summary: 'Deleted', detail: 'Service deleted' });
+          this.serviceInstanceDeleted.emit();
+        });
       },
     });
   }

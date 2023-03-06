@@ -30,16 +30,21 @@ export class EditServiceComponent implements OnInit {
   }
 
   loadServiceInstance() {
-    const id = this.route.snapshot.paramMap.get('id') ?? '';
+    const id = this.route.snapshot.paramMap.get('id')?.replace('create', '') ?? '';
 
+    if (!id) {
+      this.title = 'Add Service';
+      return;
+    }
+
+    this.title = 'Edit Service';
     this.serviceInstanceService.getServiceInstance(id).subscribe(serviceInstance => {
       this.serviceInstance = serviceInstance;
-      this.title = this.serviceInstance ? 'Edit Service' : 'Add Service';
+      this.form.patchValue({ ...this.serviceInstance });
     });
   }
 
   buildForm() {
-    //TODO: add image upload
     this.form = this.formBuilder.group({
       name: [
         this.serviceInstance?.name,
@@ -98,16 +103,36 @@ export class EditServiceComponent implements OnInit {
     }
 
     this.isSaving = true;
-    this.serviceInstanceService.saveServiceInstance(this.serviceInstance).subscribe(() => {
-      this.messageService.add({
-        severity: 'success',
-        summary: 'Saved',
-        detail: 'Service successfully saved',
-        life: 2000,
-      });
 
-      this.isSaving = false;
-      void this.router.navigate(['/']);
-    });
+    const serviceInstance$ = this.serviceInstance._id
+      ? this.serviceInstanceService.updateServiceInstance(this.serviceInstance)
+      : this.serviceInstanceService.createServiceInstance(this.serviceInstance);
+
+    serviceInstance$
+      .subscribe({
+        next: () => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Saved',
+            detail: 'Service successfully saved',
+            life: 2000,
+          });
+
+          return this.router.navigate(['/']);
+        },
+        error: error => {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Service could not be saved',
+            life: 2000,
+          });
+
+          console.error(error);
+        },
+      })
+      .add(() => {
+        this.isSaving = false;
+      });
   }
 }
