@@ -13,6 +13,10 @@ export class DashboardComponent implements OnInit {
   constructor(private serviceInstanceService: ServiceInstanceService) {}
 
   ngOnInit(): void {
+    this.fetchServiceInstances();
+  }
+
+  fetchServiceInstances() {
     this.serviceInstanceService
       .getServiceInstances()
       .subscribe(serviceInstances => (this.serviceInstances = serviceInstances));
