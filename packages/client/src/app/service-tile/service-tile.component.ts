@@ -20,7 +20,10 @@ export class ServiceTileComponent {
   ) {}
 
   cardOnClick(): void {
-    console.log('card click');
+    if (!this.serviceInstance?.url) {
+      return;
+    }
+    window.location.href = this.serviceInstance.url;
   }
 
   deleteOnClick(event: Event) {
