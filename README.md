@@ -32,6 +32,9 @@ services:
       - labmate-internal
   api:
     image: frankwhite/labmate-api:latest
+    environment:
+      - MONGO_URL=mongodb://db:27017/labmate
+      - PORT=8000
     ports:
       - "8585:8000"
     networks:
@@ -44,7 +47,7 @@ services:
       - API_HOSTNAME=localhost
       - API_PORT=8585
     ports:
-      - "8080:8080"
+      - "8998:8080"
     depends_on:
       - api
 
@@ -57,40 +60,25 @@ networks:
 
 # Build from source
 
-TODO: describe ENV
+### Prerequisites
+
+* [Node.js](https://nodejs.org/en/) >= 19.6
+* [npm](https://www.npmjs.com/) >= 9
+* [MongoDB instance](https://www.mongodb.com/)
+* Update `packages/server/.env` with your MongoDB connection string
+
+Clone repo, install dependencies and build packages:
+
+```shell
+git clone https://github.com/francWhite/labmate.git
+npm install
+npm run build
+npm start
+```
 
 ## Docker
-
-Build api:
-
-```shell
-docker build -t labmate-api:dev packages/server
-```
-
-Build app:
+Or build the application / docker images and run the containers with the included `docker-compose.yml`:
 
 ```shell
-docker build -t labmate:dev packages/client
-```
-
-### Run
-
-Run api:
-
-```shell
-docker run -p 8000:8000 --rm --name labmate-api labmate-api:dev
-```
-
-Run app:
-
-```shell
-docker run -p 8001:8080 --rm --name labmate labmate:dev
-```
-
-### Compose
-
-Build and run:
-
-```shell
-docker-compose up
+docker-compose up --build
 ```
