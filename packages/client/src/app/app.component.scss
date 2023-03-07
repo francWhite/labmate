@@ -1,14 +1,15 @@
+@import 'primeflex/primeflex.scss';
+
 app-header {
   position: fixed;
-  overflow: hidden;
+  z-index: 1;
   top: 0;
-  width: 100%;
+  width: 100vw;
   height: 3rem
 }
 
 app-sidebar {
   position: fixed;
-  overflow: hidden;
   top: 3rem;
   left: 0;
   width: 3rem;
@@ -26,7 +27,7 @@ app-sidebar {
   padding-left: 12rem;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: $md) {
   app-header {
     position: absolute;
     height: 3rem;

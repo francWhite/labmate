@@ -1,3 +1,5 @@
+@import 'primeflex/primeflex.scss';
+
 #dashboard {
   display: flex;
   flex-wrap: wrap;
@@ -6,13 +8,17 @@
   gap: 2rem 4rem;
 }
 
-app-service-tile{
+app-service-tile {
   max-width: 15rem;
 }
 
-@media screen and (max-width: 610px) {
-  app-service-tile{
+@media screen and (max-width: $md) {
+  app-service-tile {
     max-width: unset;
     width: 100%;
+  }
+
+  app-service-tile-add {
+    width: 100%
   }
 }

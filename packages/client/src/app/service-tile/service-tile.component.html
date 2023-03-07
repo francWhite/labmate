@@ -18,17 +18,19 @@
   </ng-template>
   <ng-template pTemplate="footer">
     <div class="footer">
-      <p-button
+      <button
+        pButton
         label="Edit"
         icon="pi pi-pencil"
-        styleClass="p-button-sm p-button-outlined"
-        routerLink="/services/{{ serviceInstance._id }}"></p-button>
+        class="p-button-sm p-button-outlined"
+        routerLink="/services/{{ serviceInstance._id }}"></button>
 
-      <p-button
+      <button
+        pButton
         label="Delete"
         icon="pi pi-trash"
-        styleClass="p-button-sm p-button-danger p-button-outlined"
-        (click)="deleteOnClick($event)"></p-button>
+        class="p-button-sm p-button-danger p-button-outlined"
+        (click)="deleteOnClick($event)"></button>
     </div>
   </ng-template>
 </p-card>
