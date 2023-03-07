@@ -1,8 +1,18 @@
 #dashboard {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
   align-items: flex-start;
-  align-content: space-around;
+  justify-content: flex-start;
   gap: 2rem 4rem;
+}
+
+app-service-tile{
+  max-width: 15rem;
+}
+
+@media screen and (max-width: 610px) {
+  app-service-tile{
+    max-width: unset;
+    width: 100%;
+  }
 }

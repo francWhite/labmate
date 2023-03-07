@@ -2,7 +2,6 @@
   <app-service-tile
     *ngFor="let serviceInstance of serviceInstances"
     [serviceInstance]="serviceInstance"
-    (serviceInstanceDeleted)="fetchServiceInstances()"
-    class="max-w-15rem"></app-service-tile>
+    (serviceInstanceDeleted)="fetchServiceInstances()"></app-service-tile>
   <app-service-tile-add></app-service-tile-add>
 </div>
