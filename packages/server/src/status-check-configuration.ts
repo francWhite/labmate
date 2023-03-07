@@ -1,5 +1,5 @@
 export interface StatusCheckConfiguration {
   enabled: boolean;
-  interval: number;
+  interval?: number;
   checkUrl?: string;
 }

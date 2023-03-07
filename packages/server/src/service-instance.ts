@@ -9,5 +9,5 @@ export interface ServiceInstance {
   icon?: string;
   version?: string;
   status: Status;
-  statusCheckConfiguration?: StatusCheckConfiguration;
+  statusCheckConfiguration: StatusCheckConfiguration;
 }
