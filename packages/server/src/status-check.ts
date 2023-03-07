@@ -25,16 +25,13 @@ function scheduleCheck(id: string, url: string, interval: number) {
   }
 
   const intervalId = setInterval(() => {
-    console.log(`Checking status of ${url}`);
     axios
       .get(url)
       .then(() => {
-        console.log('Service is available');
         updateStatus(id, true);
       })
       .catch(() => {
         updateStatus(id, false);
-        console.log('Service is not available');
       });
   }, interval * 1000);
 
