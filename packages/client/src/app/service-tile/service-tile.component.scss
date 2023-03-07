@@ -1,3 +1,5 @@
+@import 'primeflex/primeflex.scss';
+
 :host ::ng-deep .p-card-content {
   display: none;
 }
@@ -61,8 +63,18 @@ p-card {
   justify-content: space-evenly;
   column-gap: 1rem;
   width: 100%;
+
+  button{
+    width: 100%;
+  }
 }
 
 p-card:hover .footer {
   visibility: visible;
+}
+
+@media (hover: none) {
+  .footer {
+    visibility: unset;
+  }
 }

@@ -2,43 +2,43 @@
   <h1>{{ title }}</h1>
 
   <div class="field grid input-group">
-    <label for="name" class="col-2 mb-0">Name</label>
-    <div class="col-10">
+    <label for="name" class="col-12 mb-2 md:col-2 md:mb-0">Name</label>
+    <div class="col-12 md:col-10">
       <input pInputText type="text" formControlName="name" id="name" />
     </div>
   </div>
 
   <div class="field grid input-group">
-    <label for="version" class="col-2 mb-0">Version</label>
-    <div class="col-10">
+    <label for="version" class="col-12 mb-2 md:col-2 md:mb-0">Version</label>
+    <div class="col-12 md:col-10">
       <input pInputText type="text" formControlName="version" id="version" />
     </div>
   </div>
 
   <div class="field grid input-group">
-    <label for="url" class="col-2 mb-0">Url</label>
-    <div class="col-10">
+    <label for="url" class="col-12 mb-2 md:col-2 md:mb-0">Url</label>
+    <div class="col-12 md:col-10">
       <input pInputText type="text" formControlName="url" id="url" />
     </div>
   </div>
 
   <div class="field grid input-group">
-    <label for="imageUrl" class="col-2 mb-0">Image url</label>
-    <div class="col-10">
+    <label for="imageUrl" class="col-12 mb-2 md:col-2 md:mb-0">Image url</label>
+    <div class="col-12 md:col-10">
       <input pInputText type="text" formControlName="icon" id="imageUrl" />
     </div>
   </div>
 
   <div class="field grid input-group" formGroupName="statusCheckConfiguration">
-    <label for="statusCheckEnabled" class="col-2 mb-0">Status check</label>
-    <div class="col-10">
+    <label for="statusCheckEnabled" class="col-12 mb-2 md:col-2 md:mb-0">Status check</label>
+    <div class="col-12 md:col-10">
       <p-inputSwitch formControlName="enabled" id="statusCheckEnabled"></p-inputSwitch>
     </div>
   </div>
 
   <div class="field grid input-group" formGroupName="statusCheckConfiguration" *ngIf="statusCheckEnabled()">
-    <label for="statusCheckInterval" class="col-2 mb-0">Interval</label>
-    <div class="col-10">
+    <label for="statusCheckInterval" class="col-12 mb-2 md:col-2 md:mb-0">Interval</label>
+    <div class="col-12 md:col-10">
       <p-inputNumber
         formControlName="interval"
         id="statusCheckInterval"
@@ -51,14 +51,14 @@
   </div>
 
   <div class="field grid input-group" formGroupName="statusCheckConfiguration" *ngIf="statusCheckEnabled()">
-    <label for="checkUrl" class="col-2 mb-0">Check url</label>
-    <div class="col-10">
+    <label for="checkUrl" class="col-12 mb-2 md:col-2 md:mb-0">Check url</label>
+    <div class="col-12 md:col-10">
       <input pInputText type="text" formControlName="checkUrl" id="checkUrl" />
     </div>
   </div>
 
   <div class="grid w-full">
-    <div class="button-container col-10 col-offset-2">
+    <div class="button-container md:col-10 md:col-offset-2 col-12 col-offset-0">
       <button
         pButton
         type="submit"

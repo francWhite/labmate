@@ -7,8 +7,9 @@
   align-items: center;
   justify-content: center;
 
-  width: 15rem;
-  height: 14rem;
+  min-width: 15rem;
+  min-height: 14rem;
+
   background: var(--surface-card);
 
   opacity: 20%;
@@ -19,9 +20,20 @@
   }
 }
 
-.card:hover{
+.card:hover {
   opacity: 80%;
+
   i {
     opacity: 80%;
+  }
+}
+
+@media (hover: none) {
+  .card {
+    opacity: 80%;
+
+    i {
+      opacity: 80%;
+    }
   }
 }
