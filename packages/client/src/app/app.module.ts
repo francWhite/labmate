@@ -14,7 +14,6 @@ import { BadgeModule } from 'primeng/badge';
 import { StatusPipe } from './status.pipe';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { SettingsComponent } from './settings/settings.component';
 import { AboutComponent } from './about/about.component';
 import { EditServiceComponent } from './edit-service/edit-service.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -34,7 +33,6 @@ import { ServiceTileAddComponent } from './service-tile-add/service-tile-add.com
     StatusPipe,
     HeaderComponent,
     SidebarComponent,
-    SettingsComponent,
     AboutComponent,
     EditServiceComponent,
     ServiceTileAddComponent,
