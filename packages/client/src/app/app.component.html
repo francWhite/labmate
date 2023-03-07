@@ -1,8 +1,7 @@
-<app-header class="header"></app-header>
-<div class="main">
-  <p-toast></p-toast>
-  <app-sidebar></app-sidebar>
-  <div class="content">
-    <router-outlet></router-outlet>
-  </div>
+<app-header></app-header>
+<app-sidebar [(isExpanded)]="isSidebarExpanded"></app-sidebar>
+<p-toast></p-toast>
+
+<div class="content" [ngClass]="{ expanded: isSidebarExpanded }">
+  <router-outlet></router-outlet>
 </div>
