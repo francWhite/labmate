@@ -1,6 +1,7 @@
 import express from 'express';
 import { ObjectId } from 'mongodb';
 import { collections } from './database';
+import { updateStatusCheck } from './status-check';
 
 export const servicesRouter = express.Router();
 servicesRouter.use(express.json());
@@ -34,6 +35,7 @@ servicesRouter.post('/', async (req, res) => {
   try {
     const result = await collections.serviceInstances?.insertOne(req.body);
     if (result?.acknowledged) {
+      updateStatusCheck(result.insertedId.toHexString());
       res.status(201).send(result.insertedId);
     } else {
       res.status(500).send('Error while creating service');
@@ -51,6 +53,7 @@ servicesRouter.put('/:id', async (req, res) => {
   try {
     const result = await collections.serviceInstances?.updateOne({ _id: new ObjectId(id) }, { $set: req.body });
     if (result && result.matchedCount) {
+      updateStatusCheck(id);
       res.status(200).send(`Updated service with id ${id}.`);
     } else if (!result?.matchedCount) {
       res.status(404).send(`Failed to find service with id ${id}`);
@@ -68,6 +71,7 @@ servicesRouter.delete('/:id', async (req, res) => {
   try {
     const result = await collections.serviceInstances?.deleteOne({ _id: new ObjectId(id) });
     if (result && result.deletedCount) {
+      updateStatusCheck(id);
       res.status(204).send(`Deleted service with id ${id}.`);
     } else if (!result) {
       res.status(400).send(`Failed to delete service with id ${id}`);
