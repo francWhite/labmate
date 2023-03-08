@@ -56,7 +56,6 @@ export class EditServiceComponent implements OnInit {
       ],
       version: [
         this.serviceInstance?.version,
-        Validators.required,
       ],
       icon: [this.serviceInstance?.icon],
       statusCheckConfiguration: this.formBuilder.group({

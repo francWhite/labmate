@@ -3,7 +3,7 @@
 <p-card
   *ngIf="serviceInstance"
   header="{{ serviceInstance.name }}"
-  subheader="{{ serviceInstance.version }}"
+  subheader="{{ serviceInstance.version ? serviceInstance.version : '&nbsp;' }}"
   (click)="cardOnClick()">
   <ng-template pTemplate="header">
     <div class="card-header">

@@ -31,7 +31,7 @@ services:
     networks:
       - labmate-internal
   api:
-    image: frankwhite/labmate-api:v1.0.0
+    image: frankwhite/labmate-api:v1.0.1
     environment:
       - MONGO_URL=mongodb://db:27017/labmate
       - PORT=8000
@@ -42,7 +42,7 @@ services:
     depends_on:
       - db
   app:
-    image: frankwhite/labmate:v1.0.0
+    image: frankwhite/labmate:v1.0.1
     environment:
       - API_HOSTNAME=localhost
       - API_PORT=8585
@@ -71,9 +71,22 @@ Clone repo, install dependencies and build packages:
 
 ```shell
 git clone https://github.com/francWhite/labmate.git
+cd labmate
 npm install
 npm run build
 npm start
+```
+
+To run the applications individually, use the following commands:
+
+```shell
+cd labmate/packages/server
+npm run build
+npm start
+
+cd labmate/packages/client
+npm run build
+npm start 
 ```
 
 ## Docker
