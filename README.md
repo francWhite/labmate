@@ -18,7 +18,7 @@ Sciences.
 
 # Getting started
 
-Just want to try out **labmate**? Use de following docker-compose template:
+Just want to try out **labmate**? Use de following docker-compose template and navigate to `http://localhost:8998`
 
 ```yaml
 version: "3.9"
@@ -28,8 +28,6 @@ services:
     image: mongo:latest
     volumes:
       - mongodb_data:/data/db
-    networks:
-      - labmate-internal
   api:
     image: frankwhite/labmate-api:v1.0.1
     environment:
@@ -37,8 +35,6 @@ services:
       - PORT=8000
     ports:
       - "8585:8000"
-    networks:
-      - labmate-internal
     depends_on:
       - db
   app:
@@ -53,9 +49,6 @@ services:
 
 volumes:
   mongodb_data:
-
-networks:
-  labmate-internal:
 ```
 
 # Build from source
