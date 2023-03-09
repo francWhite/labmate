@@ -6,7 +6,7 @@ services:
     volumes:
       - mongodb_data:/data/db
   api:
-    image: frankwhite/labmate-api:v1.0.1
+    image: frankwhite/labmate-api:v1.0.2
     environment:
       - MONGO_URL=mongodb://db:27017/labmate
       - PORT=8000
@@ -15,7 +15,7 @@ services:
     depends_on:
       - db
   app:
-    image: frankwhite/labmate:v1.0.1
+    image: frankwhite/labmate:v1.0.2
     environment:
       - API_HOSTNAME=localhost
       - API_PORT=8585
