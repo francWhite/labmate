@@ -1,6 +1,6 @@
 ![logo](doc/img/logo-banner.png)
 
-# LabMate - a simple dashboard for your homelab
+# Labmate - a simple dashboard for your homelab
 
 [![CI](https://github.com/francWhite/labmate/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/francWhite/labmate/actions/workflows/ci.yml)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/francWhite/labmate?include_prereleases)
@@ -13,7 +13,7 @@ the [Getting started](#getting-started) chapter and get going.
 
 
 ## Sidenotes
-LabMate was developed during an assignment for the course "Web Programming Lab" at the Lucerne University of Applied
+Labmate was developed during an assignment for the course "Web Programming Lab" at the Lucerne University of Applied
 Sciences.
 
 # Getting started
