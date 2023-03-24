@@ -66,6 +66,15 @@ public class ServicesController : ControllerBase
 		{
 			return NotFound();
 		}
+		
+		// the id of the status check configuration is not delivered by the client
+		var statusCheckConfigurationId = await _dbContext.Services
+			.Include(s => s.StatusCheckConfiguration)
+			.Where(s => s.Id == id)
+			.Select(s => s.StatusCheckConfiguration.Id)
+			.SingleAsync(cancellationToken);
+
+		service.StatusCheckConfiguration.Id = statusCheckConfigurationId;
 
 		_dbContext.Services.Update(service);
 		await _dbContext.SaveChangesAsync(cancellationToken);

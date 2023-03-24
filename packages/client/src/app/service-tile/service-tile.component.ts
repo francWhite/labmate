@@ -28,7 +28,6 @@ export class ServiceTileComponent {
 
   deleteOnClick(event: Event) {
     event.stopPropagation();
-    console.log('delete click');
 
     this.confirmationService.confirm({
       message: 'Do you want to delete this service?',
@@ -40,7 +39,7 @@ export class ServiceTileComponent {
       defaultFocus: 'reject',
       dismissableMask: true,
       accept: () => {
-        this.serviceInstanceService.deleteServiceInstance(this.serviceInstance?._id ?? '').subscribe(() => {
+        this.serviceInstanceService.deleteServiceInstance(this.serviceInstance?.id ?? '').subscribe(() => {
           this.messageService.add({ severity: 'success', summary: 'Deleted', detail: 'Service deleted' });
           this.serviceInstanceDeleted.emit();
         });

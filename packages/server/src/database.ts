@@ -20,7 +20,7 @@ export async function connectToDatabase(uri: string) {
     console.log('First start, creating dummy data...');
     await collections.serviceInstances.insertOne({
       name: 'GitHub',
-      icon: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+      iconUrl: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
       version: '2023',
       status: Status.Alive,
       url: 'https://github.com/francWhite/labmate',

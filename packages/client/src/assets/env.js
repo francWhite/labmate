@@ -3,5 +3,5 @@
 
   // Environment variables
   window['env']['api_hostname'] = 'localhost';
-  window['env']['api_port'] = '8000';
+  window['env']['api_port'] = '5168';
 })(this);

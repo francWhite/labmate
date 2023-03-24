@@ -20,17 +20,17 @@ export class ServiceInstanceService {
     return this.httpClient.get<ServiceInstance>(`${this.api_url}/${id}`);
   }
 
-  createServiceInstance(serviceInstance: ServiceInstance): Observable<string> {
-    return this.httpClient.post(this.api_url, serviceInstance, { responseType: 'text' });
+  createServiceInstance(serviceInstance: ServiceInstance): Observable<ServiceInstance> {
+    return this.httpClient.post<ServiceInstance>(this.api_url, serviceInstance);
   }
 
-  updateServiceInstance(serviceInstance: ServiceInstance): Observable<string> {
-    return this.httpClient.put(`${this.api_url}/${serviceInstance._id}`, serviceInstance, { responseType: 'text' });
+  updateServiceInstance(serviceInstance: ServiceInstance): Observable<unknown> {
+    return this.httpClient.put(`${this.api_url}/${serviceInstance.id}`, serviceInstance);
   }
 
-  deleteServiceInstance(id: string): Observable<boolean> {
+  deleteServiceInstance(id: string): Observable<unknown> {
     return this.httpClient
-      .delete<string>(`${this.api_url}/${id}`, { observe: 'response' })
+      .delete(`${this.api_url}/${id}`, { observe: 'response' })
       .pipe(map(response => response.status === 204));
   }
 }

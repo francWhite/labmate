@@ -8,11 +8,11 @@
   <ng-template pTemplate="header">
     <div class="card-header">
       <div class="icon-container">
-        <img *ngIf="serviceInstance.icon" alt="service-icon" src="{{ serviceInstance.icon }}" />
-        <i *ngIf="!serviceInstance.icon" class="pi pi-box"></i>
+        <img *ngIf="serviceInstance.iconUrl" alt="service-icon" src="{{ serviceInstance.iconUrl }}" />
+        <i *ngIf="!serviceInstance.iconUrl" class="pi pi-box"></i>
       </div>
       <p-badge
-        *ngIf="serviceInstance.statusCheckConfiguration?.enabled"
+        *ngIf="serviceInstance.statusCheckConfiguration.enabled"
         severity="{{ serviceInstance.status | status }}"></p-badge>
     </div>
   </ng-template>
@@ -23,7 +23,7 @@
         label="Edit"
         icon="pi pi-pencil"
         class="p-button-sm p-button-outlined"
-        routerLink="/services/{{ serviceInstance._id }}"></button>
+        routerLink="/services/{{ serviceInstance.id }}"></button>
 
       <button
         pButton

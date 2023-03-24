@@ -57,11 +57,11 @@ export class EditServiceComponent implements OnInit {
       version: [
         this.serviceInstance?.version,
       ],
-      icon: [this.serviceInstance?.icon],
+      iconUrl: [this.serviceInstance?.iconUrl],
       statusCheckConfiguration: this.formBuilder.group({
-        enabled: [this.serviceInstance?.statusCheckConfiguration?.enabled],
-        interval: [this.serviceInstance?.statusCheckConfiguration?.interval],
-        checkUrl: [this.serviceInstance?.statusCheckConfiguration?.checkUrl],
+        enabled: [this.serviceInstance?.statusCheckConfiguration.enabled ?? false],
+        interval: [this.serviceInstance?.statusCheckConfiguration.interval],
+        checkUrl: [this.serviceInstance?.statusCheckConfiguration.checkUrl],
       }),
     });
 
@@ -103,7 +103,7 @@ export class EditServiceComponent implements OnInit {
 
     this.isSaving = true;
 
-    const serviceInstance$ = this.serviceInstance._id
+    const serviceInstance$ = this.serviceInstance.id
       ? this.serviceInstanceService.updateServiceInstance(this.serviceInstance)
       : this.serviceInstanceService.createServiceInstance(this.serviceInstance);
 
