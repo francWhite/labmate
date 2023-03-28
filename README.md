@@ -3,9 +3,9 @@
 # Labmate - a simple dashboard for your homelab
 
 [![CI](https://github.com/francWhite/labmate/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/francWhite/labmate/actions/workflows/ci.yml)
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/francWhite/labmate?include_prereleases)
-![Docker Pulls](https://img.shields.io/docker/pulls/frankwhite/labmate)
-![licence](https://img.shields.io/github/license/francWhite/labmate)
+[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/francWhite/labmate?include_prereleases)](https://github.com/francWhite/labmate/releases)
+[![Docker Pulls](https://img.shields.io/docker/pulls/frankwhite/labmate)](https://hub.docker.com/r/frankwhite/labmate)
+[![licence](https://img.shields.io/github/license/francWhite/labmate)](https://github.com/francWhite/labmate/blob/main/LICENSE)
 
 
 Monitor your homelab with ease! There is no need for complex configuration, just use the `docker-compose.yml` from
