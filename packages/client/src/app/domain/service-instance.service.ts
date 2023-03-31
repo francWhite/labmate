@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class ServiceInstanceService {
-  private api_url = `http://${environment.api_hostname}:${environment.api_port}/api/services`;
+  private api_url = `${environment.api_url}/services`;
 
   constructor(private httpClient: HttpClient) {}
 

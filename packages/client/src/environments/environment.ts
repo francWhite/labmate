@@ -2,6 +2,5 @@
 // @ts-nocheck
 export const environment = {
   production: true,
-  api_hostname: window['env']['api_hostname'],
-  api_port: window['env']['api_port'],
+  api_url: `${location.origin}/api`,
 };
