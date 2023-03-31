@@ -28,12 +28,11 @@ public static class Program
 		{
 			app.UseSwagger();
 			app.UseSwaggerUI();
+			app.UseCors(o => o.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
 		}
 
 		app.UseAuthorization();
 		app.MapControllers();
-		
-		app.UseCors(o => o.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
 
 		app.UseStaticFiles();
 		app.UseSpaStaticFiles();
