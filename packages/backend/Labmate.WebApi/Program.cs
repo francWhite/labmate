@@ -13,7 +13,12 @@ public static class Program
 		builder.Services.AddEndpointsApiExplorer();
 		builder.Services.AddSwaggerGen();
 		builder.Services.AddCors();
-		builder.Services.AddSpaStaticFiles(configuration => { configuration.RootPath = "../../client/dist"; });
+		builder.Services.AddSpaStaticFiles(
+			configuration =>
+			{
+				var rootPath = builder.Configuration.GetValue<string>("ClientRootPath")!;
+				configuration.RootPath = rootPath;
+			});
 
 		builder.Services.AddDbContext<LabmateContext>();
 
@@ -32,11 +37,7 @@ public static class Program
 
 		app.UseStaticFiles();
 		app.UseSpaStaticFiles();
-		app.UseSpa(
-			c =>
-			{
-				c.Options.SourcePath = "../../client";
-			});
+		app.UseSpa(c => c.Options.SourcePath = app.Configuration.GetValue<string>("ClientSourcePath"));
 
 		if (app.Environment.IsProduction())
 		{
