@@ -13,6 +13,8 @@ public static class Program
 		builder.Services.AddEndpointsApiExplorer();
 		builder.Services.AddSwaggerGen();
 		builder.Services.AddCors();
+		builder.Services.AddSpaStaticFiles(configuration => { configuration.RootPath = "../../client/dist"; });
+
 		builder.Services.AddDbContext<LabmateContext>();
 
 		var app = builder.Build();
@@ -25,7 +27,16 @@ public static class Program
 
 		app.UseAuthorization();
 		app.MapControllers();
+		
 		app.UseCors(o => o.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
+
+		app.UseStaticFiles();
+		app.UseSpaStaticFiles();
+		app.UseSpa(
+			c =>
+			{
+				c.Options.SourcePath = "../../client";
+			});
 
 		if (app.Environment.IsProduction())
 		{
